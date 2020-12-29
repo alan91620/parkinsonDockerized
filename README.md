@@ -19,7 +19,7 @@ Nous avons ensuite developpé un backoffice (Spring boot) faisant des appels sur
 
 Enfin nous avons developpé un frontoffice simple avec Reactjs permettant l'upload de fichier .wav
 
-Un fois ces applications developpés nous les avons dockerisés et push les images sur notre [Dcoker Hub](https://hub.docker.com/repository/docker/tigroucharly/parkinson).
+Un fois ces applications developpés nous les avons dockerisés et push les images sur notre [Docker Hub](https://hub.docker.com/repository/docker/tigroucharly/parkinson).
 Puis pour finir nous avons réalisé un docker compose faisant les actions suivantes :
 - Mise en place front
 - Mise en place loadbalancer
