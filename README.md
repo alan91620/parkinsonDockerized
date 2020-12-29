@@ -2,25 +2,25 @@
 
 Par [Alan MARTHINEAU](mailto:alan.marthineau@edu.ece.fr), [Augustin LOLLIVIER](mailto:augustin.lollivier@edu.ece.fr), [Karim BENSAID](mailto:karim.bensaid@edu.ece.fr)
 
-Ce projet est une architecture distribuée et conteneurisée autour d'une librairie de machine learning réalisée pour un ancien projet. 
+Ce projet est une architecture distribuée et conteneurisée, contruite autour d'une librairie de machine learning réalisée pour un ancien projet. 
 Cette librairie permet la detection de la maladie de parkinson par la voix via un fichier audio .wav avec une precision de ~60% (manque de données). 
 [En savoir plus](https://medium.com/better-programming/diagnosing-parkinsons-disease-by-voice-using-linear-regression-in-python-73aad2712fba)
 
-Le but de ce projet a donc été de construire une architecture distribuée, conteneurisée autour de cette librairie et également de stocker les mesures effectuées sur l'audio par la librairie de machine learning et de les stocker dans un cluster MySQL afin de les réutiliser plus tard pour augmenter la base de connaissance du model de machine lerning --> Amélioration de la précision.
+Le but de ce projet a donc été de construire une architecture distribuée, conteneurisée autour de cette librairie permettant la detection de la maladie mais également de stocker les mesures effectuées sur le fichier audio par la librairie de machine learning, dans un cluster MySQL afin de les réutiliser plus tard pour augmenter la base de connaissance du model de machine learning --> Amélioration de la précision.
 
-A l'heure actuelle, seulement de l'écriture est réalisée dans le cluster MySQL, par la suite les modules pourraient être modifiées pour re-entrainer automatiquement le model depuis les données de la base. (Nous ne l'avons pas fait car assez couteux en temps et ce n'était pas le but premier du projet.
+A l'heure actuelle, seulement de l'écriture est réalisée dans le cluster MySQL, par la suite les modules pourraient être modifiés pour re-entrainer automatiquement le model depuis les données de la base. (Nous ne l'avons pas fait car assez couteux en temps et ce n'était pas le but premier du projet.
 
 ### Schéma d'architecture
 
 [![archhi-aprk.png](https://i.postimg.cc/jqyJpjq7/archhi-aprk.png)](https://postimg.cc/QVxt5hT8)
 
-Pour réaliser ce projet nous avons d'abord transformé notre librairie de machine learning en serveur REST python (Flask) afin de pouvoir faire des appel cross-langage depuis le back.
-Nous avons ensuite developpé un backoffice (Spring boot) faisant des appels sur le serveur rest python, embarquant egalement un connecteur jdbc mysql pour faire des appel sur le futur cluster et une route http pour recevoir le fichier audio.
+Pour réaliser ce projet nous avons d'abord transformé notre librairie de machine learning en serveur REST python (Flask) afin de pouvoir faire des appels cross-langage depuis le back.
+Nous avons ensuite developpé un backoffice (Spring boot) faisant des appels sur le serveur REST python, embarquant également un connecteur jdbc mysql pour faire des appels sur le futur cluster et une route http pour recevoir le fichier audio.
 
-Enfin nous avons developpé un frontoffice simple avec Reactjs permettant l'upload de fichier .wav
+Enfin nous avons developpé un frontoffice simple avec Reactjs permettant l'upload de fichier .wav et l'affichage du résultat.
 
-Un fois ces applications developpés nous les avons dockerisés et push les images sur notre [Docker Hub](https://hub.docker.com/repository/docker/tigroucharly/parkinson).
-Puis pour finir nous avons réalisé un docker compose faisant les actions suivantes :
+Une fois ces applications developpées nous les avons dockerisés et avons push les images sur notre [Docker Hub](https://hub.docker.com/repository/docker/tigroucharly/parkinson).
+Puis pour finir nous avons réalisé un docker-compose réalisant les actions suivantes :
 - Mise en place front
 - Mise en place loadbalancer
   - chargement nginx.conf
@@ -29,9 +29,9 @@ Puis pour finir nous avons réalisé un docker compose faisant les actions suiva
 - Mise en place Cluster MySQL
   - initialisation du schéma de base
   - initialisation des comptes root:password & admin:password
-- Mise en place d'un résau pour le cluster.
+- Mise en place d'un réseau pour le cluster.
 
-L'installation a été rendue le plus simple possible avec le docker compose, il n'y a rien a initialiser, seulement à copier ce dépôt github et lancer le docker-compose -> voir ci-après.
+L'installation a été rendue le plus simple possible avec le docker-compose, il n'y a rien à initialiser, seulement à clone ce dépôt github et lancer le docker-compose -> voir ci-après.
 
 ## Prérequis
 
@@ -57,7 +57,7 @@ git clone https://github.com/alan91620/parkinsonDockerized.git
 
 ## Utilisation
 
-Se rendre dans le dossier du projet
+Se placer dans le dossier du projet
 ```bash
 cd ./parkinsonDockerized
 ```
@@ -69,19 +69,19 @@ le docker-compose va récuperer les images docker sur docker hub.
 
 Les images ont étés préalablement créées et postées sur docker hub pour le projet (voir [Ressources](https://github.com/alan91620/parkinsonDockerized/blob/master/README.md#ressources))
 
-Attendre que le docker-compose finisse le démarrage du projet.
+Attendre que le docker-compose finisse l'initialisation du projet.
 
-L'interface est accessible depuis l'adresse http://localhost:3000/
+Une fois les services lancés, l'interface est accessible depuis l'adresse http://localhost:3000/
 
 ## Validation
 
 Acceder à l'ihm : http://localhost:3000/
 
-Uploader un des fichier de test fournit dans le repo git (/parkinsonDockerized/test-files)
+Uploader un des fichier de test fourni (/parkinsonDockerized/test-files).
 
 Attendre la réponse.
 
-Vérifier que la base à bien été remplie avec les mesures du fichier fournit
+Vérifier que la base à bien été remplie avec les mesures du fichier fourni.
 ```bash
 sudo docker container ls
 ```
@@ -109,5 +109,5 @@ Les données sont présentes.
 
 [Repo images perso docker](https://hub.docker.com/repository/docker/tigroucharly/parkinson)
 
-Les Dockerfiles se trouvent dans les dépots github.
+Les Dockerfiles se trouvent dans le dépot Github propre à chaque module.
 
