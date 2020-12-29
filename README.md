@@ -66,7 +66,7 @@ sudo docker-compose up
 ```
 le docker-compose va récuperer les images docker sur docker hub.
 
-Les images ont étés préalablement créées et postées sur docker hub pour le projet (voir Ressources)
+Les images ont étés préalablement créées et postées sur docker hub pour le projet (voir [Ressources](https://github.com/alan91620/parkinsonDockerized/blob/master/README.md#ressources))
 
 Attendre que le docker-compose finisse le démarrage du projet.
 
