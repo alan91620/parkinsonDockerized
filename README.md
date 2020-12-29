@@ -1,6 +1,14 @@
 # Parkinson Detection
 
-Foobar is a Python library for dealing with word pluralization.
+Ce projet est une architecture distribué autour d'une librairie de machine learning réalisée pour un ancien projet. 
+Cette librairie permet la detection de la maladie de parkinson avec une precision de ~60% (manque de donnée). [En savoir plus](https://medium.com/better-programming/diagnosing-parkinsons-disease-by-voice-using-linear-regression-in-python-73aad2712fba)
+Le but de ce projet a donc été de construire une architecture distribué, conteneurisé autour de cette librairie et également de stocker les mesures effectuées sur l'audio par la librairie de machine learning et de les stocker dans un cluster MySQL afin de les réutiliser plus tard pour augmenter la base de connaissance du model de machine lerning --> Amélioration de la précision.
+
+A l'heure actuelle, seulement de l'écriture est réalisée dans le cluster MySQL, par la suite les modules pourraient être modifiées pour re-entrainer automatiquement le model depuis les données de la base. (Nous ne l'avons pas fait car assez couteux en temps et ce n'était pas le but premier du projet.
+
+### Schéma d'architecture
+
+[![Untitled-Diagram-1.png](https://i.postimg.cc/XNDNpcz6/Untitled-Diagram-1.png)](https://postimg.cc/dDrcfdF5)
 
 ## Prérequis
 
