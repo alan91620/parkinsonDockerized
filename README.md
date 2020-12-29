@@ -20,13 +20,13 @@ Un fois ces applications developpés nous les avons dockerisés et push les imag
 Puis pour finir nous avons réalisé un docker compose faisant les actions suivantes :
 - Mise en place front
 - Mise en place loadbalancer
-  -chargement nginx.conf
+  - chargement nginx.conf
 - Mise en place 2 back
 - Mise en place API python
 - Mise en place Cluster MySQL
   - initialisation du schéma de base
   - initialisation des comptes root:password & admin:password
--Mise en place d'un résau pour le cluster.
+- Mise en place d'un résau pour le cluster.
 
 L'installation a été rendue le plus simple possible avec le docker compose, il n'y a rien a initialiser, seulement à copier ce dépôt github et lancer le docker-compose -> voir ci-après.
 
