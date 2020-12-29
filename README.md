@@ -24,22 +24,28 @@ Cloner le repo du projet docker-compose
 git clone https://github.com/alan91620/parkinsonDockerized.git
 ```
 
+## Utilisation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
+Se rendre dans le dossier du projet
 ```bash
-pip install foobar
+cd ./parkinsonDockerized
 ```
-
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+Lancer le docker-compose
+```bash
+sudo docker-compose up
 ```
+le docker-compose va récuperer les images docker sur docker hub.
+Les images ont étés préalablement créées et postées sur docker hub pour le projet (voir Ressources)
+
+Attendre que le docker-compose finisse le démarrage du projet.
+
+L'interface est accessible depuis l'adresse http://localhost:3000/
+
+## Utilisation
+
+Acceder à l'ihm : http://localhost:3000/
+
+Uploader un des fichier de test fournit dans le repo git (/parkinsonDockerized/test-files)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
