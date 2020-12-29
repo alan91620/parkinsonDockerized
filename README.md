@@ -10,6 +10,24 @@ A l'heure actuelle, seulement de l'écriture est réalisée dans le cluster MySQ
 
 [![Untitled-Diagram-1.png](https://i.postimg.cc/XNDNpcz6/Untitled-Diagram-1.png)](https://postimg.cc/dDrcfdF5)
 
+Pour réaliser ce projet nous avons d'abord transformé notre librairie de machine learning en serveur REST python (Flask) afin de pouvoir faire des appel cross-langage depuis le back.
+Nous avons ensuite developpé un backoffice (Spring boot) faisant des appels sur le serveur rest python, embarquant egalement un connecteur jdbc mysql pour faire des appel sur le futur cluster et enfin comprenant une route http pour recevoir le fichier audio
+Enfin nous avons developpé un simple frontoffice avec Reactjs permettant l'upload de fichier .wav
+
+Un fois ces applications developpés nous les avons dockerisés et push les images sur notre [Dcoker Hub](https://hub.docker.com/repository/docker/tigroucharly/parkinson).
+Puis pour finir nous avons réalisé un docker compose faisant les actions suivantes :
+- Mise en place front
+- Mise en place loadbalancer
+  -chargement nginx.conf
+- Mise en place 2 back
+- Mise en place API python
+- Mise en place Cluster MySQL
+  - initialisation du schéma de base
+  - initialisation des comptes root:password & admin:password
+-Mise en place d'un résau pour le cluster.
+
+L'installation a été rendue le plus simple possible avec le docker compose, il n'y a rien a initialiser, seulement à copier ce dépôt github et lancer le docker-compose -> voir ci-après.
+
 ## Prérequis
 
 - Machine Linux ayant accès a internet (Testé sur Ubuntu 20.10)
