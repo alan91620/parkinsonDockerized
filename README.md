@@ -41,16 +41,37 @@ Attendre que le docker-compose finisse le démarrage du projet.
 
 L'interface est accessible depuis l'adresse http://localhost:3000/
 
-## Utilisation
+## Validation
 
 Acceder à l'ihm : http://localhost:3000/
 
 Uploader un des fichier de test fournit dans le repo git (/parkinsonDockerized/test-files)
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Attendre la réponse.
 
-Please make sure to update tests as appropriate.
+Vérifier que la base à bien été remplie avec les mesures du fichier fournit
+```bash
+sudo docker container ls
+```
+Chercher le container mysql du cluster et relever son nom (parkinsondockerized_mysql1_1)
+Ouvrir une console mysql sur le container
+```bash
+sudo docker exec -it parkinsondockerized_mysql1_1 mysql -u root -p
+password : password
+```
+Enfin afficher les valeurs de la table de données
+```sql
+use parkinson;
+select * from measures;
+```
+Les données sont présentes.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Ressources
+
+[Github project MachineLearning API](https://github.com/alan91620/parkison-api)
+[Github project Frontoffice](https://github.com/alan91620/frontparkinson)
+[Github project Backoffice](https://github.com/alan91620/backparkinson)
+[Repo images perso docker](https://hub.docker.com/repository/docker/tigroucharly/parkinson)
+
+Les Dockerfiles se trouvent dans les dépots github.
+
