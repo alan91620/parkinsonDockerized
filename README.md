@@ -63,6 +63,7 @@ Lancer le docker-compose
 sudo docker-compose up
 ```
 le docker-compose va récuperer les images docker sur docker hub.
+
 Les images ont étés préalablement créées et postées sur docker hub pour le projet (voir Ressources)
 
 Attendre que le docker-compose finisse le démarrage du projet.
@@ -82,6 +83,7 @@ Vérifier que la base à bien été remplie avec les mesures du fichier fournit
 sudo docker container ls
 ```
 Chercher le container mysql du cluster et relever son nom (parkinsondockerized_mysql1_1)
+
 Ouvrir une console mysql sur le container
 ```bash
 sudo docker exec -it parkinsondockerized_mysql1_1 mysql -u root -p
@@ -97,8 +99,11 @@ Les données sont présentes.
 ## Ressources
 
 [Github project MachineLearning API](https://github.com/alan91620/parkison-api)
+
 [Github project Frontoffice](https://github.com/alan91620/frontparkinson)
+
 [Github project Backoffice](https://github.com/alan91620/backparkinson)
+
 [Repo images perso docker](https://hub.docker.com/repository/docker/tigroucharly/parkinson)
 
 Les Dockerfiles se trouvent dans les dépots github.
