@@ -12,11 +12,12 @@ A l'heure actuelle, seulement de l'écriture est réalisée dans le cluster MySQ
 
 ### Schéma d'architecture
 
-[![Untitled-Diagram-1.png](https://i.postimg.cc/XNDNpcz6/Untitled-Diagram-1.png)](https://postimg.cc/dDrcfdF5)
+[![archhi-aprk.png](https://i.postimg.cc/jqyJpjq7/archhi-aprk.png)](https://postimg.cc/QVxt5hT8)
 
 Pour réaliser ce projet nous avons d'abord transformé notre librairie de machine learning en serveur REST python (Flask) afin de pouvoir faire des appel cross-langage depuis le back.
-Nous avons ensuite developpé un backoffice (Spring boot) faisant des appels sur le serveur rest python, embarquant egalement un connecteur jdbc mysql pour faire des appel sur le futur cluster et enfin comprenant une route http pour recevoir le fichier audio
-Enfin nous avons developpé un simple frontoffice avec Reactjs permettant l'upload de fichier .wav
+Nous avons ensuite developpé un backoffice (Spring boot) faisant des appels sur le serveur rest python, embarquant egalement un connecteur jdbc mysql pour faire des appel sur le futur cluster et une route http pour recevoir le fichier audio.
+
+Enfin nous avons developpé un frontoffice simple avec Reactjs permettant l'upload de fichier .wav
 
 Un fois ces applications developpés nous les avons dockerisés et push les images sur notre [Dcoker Hub](https://hub.docker.com/repository/docker/tigroucharly/parkinson).
 Puis pour finir nous avons réalisé un docker compose faisant les actions suivantes :
