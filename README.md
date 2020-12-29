@@ -1,5 +1,7 @@
 # Parkinson Detection
 
+Par [Alan MARTHINEAU](mailto:alan.marthineau@edu.ece.fr), [Augustin LOLLIVIER](mailto:augustin.lollivier@edu.ece.fr), [Karim BENSAID](mailto:karim.bensaid@edu.ece.fr)
+
 Ce projet est une architecture distribuée et conteneurisée autour d'une librairie de machine learning réalisée pour un ancien projet. 
 Cette librairie permet la detection de la maladie de parkinson avec une precision de ~60% (manque de données). 
 [En savoir plus](https://medium.com/better-programming/diagnosing-parkinsons-disease-by-voice-using-linear-regression-in-python-73aad2712fba)
