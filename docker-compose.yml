@@ -5,7 +5,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - /home/alan/Bureau:/home/alan/Bureau
+      - /tmp:/home/audio
   front:
     image: "tigroucharly/parkinson:park-front"
     ports:
@@ -18,14 +18,14 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /home/alan/Bureau:/home/alan/Bureau
+      - /tmp:/home/audio
     depends_on:
       - "front"
       - "api"
       - "mysql1"
     environment: 
             PAR_API_URL: http://127.0.0.1:5000/predict
-            WAV_TARGET: /home/alan/Bureau
+            WAV_TARGET: /home/audio
             MYSQL_DRIVER: com.mysql.jdbc.Driver
             MYSQL_URL: jdbc:mysql://localhost:3306/parkinson?allowPublicKeyRetrieval=true&useSSL=false
             MYSQL_PASS: password
@@ -74,6 +74,7 @@ services:
     volumes:
        - ./mysql.conf/my.cnf:/etc/my.cnf
        - ./mysql.conf/mysql-cluster.cnf:/etc/mysql-cluster.cnf
+       - ./schema.sql:/docker-entrypoint-initdb.d/1.sql
 #    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
