@@ -92,7 +92,7 @@ Ouvrir une console mysql sur le container
 sudo docker exec -it parkinsondockerized_mysql1_1 mysql -u root -p
 password : password
 ```
-Enfin afficher les valeurs de la table de données
+Enfin afficher le contenu de la table.
 ```sql
 use parkinson;
 select * from measures;
